@@ -23,6 +23,18 @@
       });
     });
 
+    const aboutCopy = document.querySelector('.about-tab-copy');
+    const aboutDescriptions = [
+      'We’re a staff of smart, friendly professionals dedicated to anticipating your needs and making your life easier.',
+      'Our purpose is clear—empowering clients to streamline, protect, and grow the wealth they’ve diligently built.',
+      'We help you realize your vision while building lasting confidence and peace of mind throughout your financial journey.'
+    ];
+    document.querySelectorAll('.about-tabs button').forEach((button, index) => button.addEventListener('click', () => {
+      document.querySelectorAll('.about-tabs button').forEach((tab) => tab.classList.remove('active'));
+      button.classList.add('active');
+      if (aboutCopy) aboutCopy.textContent = aboutDescriptions[index];
+    }));
+
     document.querySelectorAll('.journey-step').forEach((step, index) => {
       step.setAttribute('tabindex', '0');
       step.setAttribute('role', 'button');
