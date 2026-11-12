@@ -5,14 +5,8 @@
     // Fallback behavior keeps the page functional if a CDN dependency is blocked.
     const toggler = document.querySelector('.navbar-toggler');
     const menu = document.querySelector('.navbar-collapse');
-    if (toggler && menu) {
-      toggler.addEventListener('click', () => {
-        if (window.bootstrap?.Collapse) {
-          window.bootstrap.Collapse.getOrCreateInstance(menu).toggle();
-        } else {
-          menu.classList.toggle('show');
-        }
-      });
+    if (toggler && menu && !window.bootstrap?.Collapse) {
+      toggler.addEventListener('click', () => menu.classList.toggle('show'));
     }
 
     document.querySelectorAll('.navbar-nav .nav-link').forEach((link) => {
